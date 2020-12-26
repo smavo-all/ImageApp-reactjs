@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import styled from '@emotion/styled';
+//import styled from '@emotion/styled';
+import Error from './Error';
 
-
-function Form() {
+function Form({ setBusqueda }) {
 
     const [termino, setTermino] = useState('');
     const [error, setError] = useState(false);
-    console.log(termino);
+    //console.log(termino);
 
     const buscarImagenes = (e) => {
         e.preventDefault();
@@ -19,7 +19,7 @@ function Form() {
         setError(false);
 
         // enviar el termino de búsqueda hacia el componente principal
-        //guardarBusqueda(termino);
+        setBusqueda(termino);
     }
 
     return (
@@ -44,7 +44,7 @@ function Form() {
                 </div>
             </div>
 
-            {/* error ? <Error mensaje="Agrega un término de búsqueda" /> : null*/}
+            { error ? <Error mensaje="Agrega un término de búsqueda" /> : null}
         </form>
     )
 }
