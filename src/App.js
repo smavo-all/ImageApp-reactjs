@@ -41,6 +41,9 @@ function App() {
       const calcularTotalPaginas = Math.ceil(resultado.totalHits / imagenesPorPagina);
       guardarTotalPaginas(calcularTotalPaginas);
 
+      const jumbotron = document.querySelector('.jumbotron');
+      jumbotron.scrollIntoView({behavior: 'smooth'})
+
     }
     consultarApi();
   }, [busqueda, paginaactual]);
